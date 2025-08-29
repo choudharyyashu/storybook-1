@@ -1,61 +1,119 @@
-.container {
+/* ListPage.css */
+.list-page-container {
   padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a2e; /* Dark background from image */
   min-height: 100vh;
+  color: #e0e0e0;
 }
 
-.header {
+.header-section {
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  font-size: 2.5em;
+  margin-bottom: 40px;
 }
 
-.cardGrid {
+.main-title {
+  font-size: 3em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  background-color: #4a2a80; /* Purple tone */
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.filter-button:hover {
+  background-color: #6a4a90;
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background-color: #007bff; /* Blue for active, adjust as per image */
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.cardLink {
+.card-link {
   text-decoration: none;
   color: inherit;
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #2a2a4a; /* Darker purple/blue for cards */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   height: 100%;
+  border: 1px solid #4a2a80;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-7px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
 }
 
-.cardImage {
+.card-image {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #4a2a80;
 }
 
-.cardTitle {
-  font-size: 1.5em;
-  color: #333;
-  margin: 15px 10px 5px 10px;
+.card-title {
+  font-size: 1.4em;
+  color: #ffffff;
+  margin: 15px 15px 5px 15px;
   flex-grow: 1;
+  text-align: center;
 }
 
-.cardStatus {
-  font-size: 0.9em;
-  color: #666;
-  margin: 0 10px 15px 10px;
+.card-status {
+  font-size: 1em;
+  color: #9999ff; /* Lighter purple for status */
+  margin: 0 15px 15px 15px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(74, 42, 128, 0.5); /* Semi-transparent background for status */
+  align-self: center;
+}
+
+/* Specific status colors (adjust as needed based on image) */
+.card-status:contains("New") {
+  background-color: #007bff; /* Blue */
+}
+
+.card-status:contains("In Progress") {
+  background-color: #ffc107; /* Yellow */
+  color: #333;
+}
+
+.card-status:contains("Completed") {
+  background-color: #28a745; /* Green */
 }

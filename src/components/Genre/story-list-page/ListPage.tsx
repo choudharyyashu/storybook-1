@@ -14,6 +14,7 @@ const ListPage: React.FC = () => {
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<string>('All');
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -31,6 +32,11 @@ const ListPage: React.FC = () => {
     fetchStories();
   }, []);
 
+  const filteredStories = stories.filter(story => {
+    if (filter === 'All') return true;
+    return story.Status === filter;
+  });
+
   if (loading) {
     return <div className="loading-message">Loading stories...</div>;
   }
@@ -40,21 +46,29 @@ const ListPage: React.FC = () => {
   }
 
   return (
-    <div className="container">
-      <h1 className="header">Science Fiction Stories</h1>
-      <div className="cardGrid">
-        {stories.map((story) => (
-          <Link to={`/genre/${story._id}`} key={story._id} className="cardLink">
+    <div className="list-page-container">
+      <div className="header-section">
+        <h1 className="main-title">Science Fiction Stories</h1>
+        <div className="filter-buttons">
+          <button className={`filter-button ${filter === 'New' ? 'active' : ''}`} onClick={() => setFilter('New')}>New</button>
+          <button className={`filter-button ${filter === 'In Progress' ? 'active' : ''}`} onClick={() => setFilter('In Progress')}>In Progress</button>
+          <button className={`filter-button ${filter === 'Completed' ? 'active' : ''}`} onClick={() => setFilter('Completed')}>Completed</button>
+          <button className={`filter-button ${filter === 'All' ? 'active' : ''}`} onClick={() => setFilter('All')}>Clear All</button>
+        </div>
+      </div>
+      <div className="card-grid">
+        {filteredStories.map((story) => (
+          <Link to={`/genre/${story._id}`} key={story._id} className="card-link">
             <div className="card">
               {story.Image && story.Image.length > 0 && (
                 <img
                   src={`https://ik.imagekit.io/dev24/${story.Image[0]}`}
                   alt={story.Title}
-                  className="cardImage"
+                  className="card-image"
                 />
               )}
-              <h2 className="cardTitle">{story.Title}</h2>
-              <p className="cardStatus">Status: {story.Status}</p>
+              <h2 className="card-title">{story.Title}</h2>
+              <p className="card-status">{story.Status}</p>
             </div>
           </Link>
         ))}
