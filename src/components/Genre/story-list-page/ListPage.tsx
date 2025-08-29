@@ -15,6 +15,8 @@ const ListPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>('All');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const storiesPerPage = 8;
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -37,6 +39,21 @@ const ListPage: React.FC = () => {
     return story.Status === filter;
   });
 
+  // Pagination logic
+  const indexOfLastStory = currentPage * storiesPerPage;
+  const indexOfFirstStory = indexOfLastStory - storiesPerPage;
+  const currentStories = filteredStories.slice(indexOfFirstStory, indexOfLastStory);
+
+  const totalPages = Math.ceil(filteredStories.length / storiesPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages));
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
+  };
+
   if (loading) {
     return <div className="loading-message">Loading stories...</div>;
   }
@@ -57,7 +74,7 @@ const ListPage: React.FC = () => {
         </div>
       </div>
       <div className="card-grid">
-        {filteredStories.map((story) => (
+        {currentStories.map((story) => (
           <Link to={`/genre/${story._id}`} key={story._id} className="card-link">
             <div className="card">
               {story.Image && story.Image.length > 0 && (
@@ -72,6 +89,11 @@ const ListPage: React.FC = () => {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="pagination-controls">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous</button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
       </div>
     </div>
   );

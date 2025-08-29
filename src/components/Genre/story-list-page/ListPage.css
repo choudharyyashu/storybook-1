@@ -117,3 +117,39 @@
 .card-status:contains("Completed") {
   background-color: #28a745; /* Green */
 }
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.pagination-controls button {
+  background-color: #4a2a80; /* Purple tone */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #6a4a90;
+  transform: translateY(-2px);
+}
+
+.pagination-controls button:disabled {
+  background-color: #3a3a5a;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-controls span {
+  color: #e0e0e0;
+  font-size: 1.1em;
+}
