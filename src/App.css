@@ -9,9 +9,16 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-weight: bold;
     color: #e0e0e0;
+}
+
+.app-logo {
+    height: 30px;
+    margin-right: 10px;
 }
 
 .nav-links {

@@ -8,7 +8,10 @@ const App: React.FC = () => {
         <Router>
             <div>
                 <nav className="header-nav">
-                    <div className="logo">BrainyLingo</div>
+                    <div className="logo">
+                        <img src="/favicon.ico" alt="React Logo" className="app-logo" />
+                        BrainyLingo
+                    </div>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/leaderboard">Leaderboard</Link></li>
