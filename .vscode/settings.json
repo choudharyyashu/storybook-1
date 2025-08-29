@@ -1,0 +1,9 @@
+{
+    "git.allowForcePush": true,
+    "git.allowNoVerifyCommit": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "github.copilot.advanced": {}
+
+
+    
+}
