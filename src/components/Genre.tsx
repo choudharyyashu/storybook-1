@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import ListPage from './Genre/ListPage';
-import StoryContent from './Genre/StoryContent';
+import ListPage from './Genre/story-list-page/ListPage';
+import StoryContent from './Genre/story-content/StoryContent';
 
 const Genre: React.FC = () => {
   return (
