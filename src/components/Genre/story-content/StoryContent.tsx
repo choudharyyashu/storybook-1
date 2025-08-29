@@ -40,6 +40,7 @@ const StoryContent: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'wordExplorer' | 'storyAdventure' | 'brainQuest'>('wordExplorer');
+  const [currentWordExplorerIndex, setCurrentWordExplorerIndex] = useState<number>(0);
 
   useEffect(() => {
     const fetchStory = async () => {
@@ -97,20 +98,42 @@ const StoryContent: React.FC = () => {
 
       <div className="tabContent">
         {activeTab === 'wordExplorer' && (
-          <div className="tabPanel">
+          <div className="tabPanel wordExplorerPanel">
             <h2 className="tabPanelTitle">Word Explorer</h2>
-            {story.Wordexplore.map((word, index) => (
-              <div key={index} className="wordItem">
-                <h3 className="wordTitle">{word.Storytitle}</h3>
-                <p className="wordText">{word.Storyttext}</p>
-                {word.Storyimage && word.Storyimage.length > 0 && (
-                  <img src={`https://ik.imagekit.io/dev24/${word.Storyimage[0]}`} alt={word.Storytitle} className="wordImage" />
-                )}
-                <p className="wordDetail">Synonyms: {word.Synonyms}</p>
-                <p className="wordDetail">Antonyms: {word.Antonyms}</p>
-                <p className="wordDetail">Noun: {word.Noun}</p>
+            {story.Wordexplore.length > 0 && (
+              <div className="wordExplorerLayout">
+                <div className="wordExplorerMainContent">
+                  <div className="currentWordExplorerItem">
+                    <div className="navigation-buttons">
+                      <button onClick={() => setCurrentWordExplorerIndex(prev => Math.max(0, prev - 1))} disabled={currentWordExplorerIndex === 0}>&lt;</button>
+                    </div>
+                    <div className="wordItem">
+                      <h3 className="wordTitle">{story.Wordexplore[currentWordExplorerIndex].Storytitle}</h3>
+                      <p className="wordText">{story.Wordexplore[currentWordExplorerIndex].Storyttext}</p>
+                      {story.Wordexplore[currentWordExplorerIndex].Storyimage && story.Wordexplore[currentWordExplorerIndex].Storyimage.length > 0 && (
+                        <img src={`https://ik.imagekit.io/dev24/${story.Wordexplore[currentWordExplorerIndex].Storyimage[0]}`} alt={story.Wordexplore[currentWordExplorerIndex].Storytitle} className="wordImage" />
+                      )}
+                      <p className="wordDetail">Synonyms: {story.Wordexplore[currentWordExplorerIndex].Synonyms}</p>
+                      <p className="wordDetail">Antonyms: {story.Wordexplore[currentWordExplorerIndex].Antonyms}</p>
+                      <p className="wordDetail">Noun: {story.Wordexplore[currentWordExplorerIndex].Noun}</p>
+                    </div>
+                    <div className="navigation-buttons">
+                      <button onClick={() => setCurrentWordExplorerIndex(prev => Math.min(story.Wordexplore.length - 1, prev + 1))} disabled={currentWordExplorerIndex === story.Wordexplore.length - 1}>&gt;</button>
+                    </div>
+                  </div>
+                </div>
+                <div className="wordExplorerThumbnails">
+                  <div className="remainingWordExplorerItems">
+                    {story.Wordexplore.map((word, index) => (
+                      <div key={index} className={`wordItemThumbnail ${index === currentWordExplorerIndex ? 'activeThumbnail' : ''}`} onClick={() => setCurrentWordExplorerIndex(index)}>
+                        <img src={`https://ik.imagekit.io/dev24/${word.Storyimage[0]}`} alt={word.Storytitle} className="wordThumbnailImage" />
+                        <p className="wordThumbnailTitle">{word.Storytitle}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
+            )}
           </div>
         )}
 
