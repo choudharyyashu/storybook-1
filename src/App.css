@@ -57,3 +57,29 @@
 .sign-out-button:hover {
     background-color: #9a67ea;
 }
+
+@media (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .sign-out-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
