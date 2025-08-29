@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Genre from './components/Genre';
 
@@ -6,24 +7,15 @@ const App: React.FC = () => {
     return (
         <Router>
             <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/leaderboard">Leaderboard</Link>
-                        </li>
-                        <li>
-                            <Link to="/dailyquiz">Daily Quiz</Link>
-                        </li>
-                        <li>
-                            <Link to="/genre">Genre</Link>
-                        </li>
-                        <li>
-                            <button>Sign Out</button>
-                        </li>
+                <nav className="header-nav">
+                    <div className="logo">BrainyLingo</div>
+                    <ul className="nav-links">
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/leaderboard">Leaderboard</Link></li>
+                        <li><Link to="/dailyquiz">Daily Quiz</Link></li>
+                        <li><Link to="/genre">Genre</Link></li>
                     </ul>
+                    <button className="sign-out-button">Sign Out</button>
                 </nav>
                 <Routes>
                     <Route path="/genre/*" element={<Genre />} />
