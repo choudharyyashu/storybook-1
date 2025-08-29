@@ -1,0 +1,162 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.loadingError {
+  text-align: center;
+  padding: 20px;
+  color: red;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabButton {
+  padding: 12px 25px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #555;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 8px;
+  margin: 0 5px;
+}
+
+.activeTabButton {
+  padding: 12px 25px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 8px;
+  margin: 0 5px;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.tabContent {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tabPanelTitle {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.wordItem {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.wordTitle {
+  font-size: 1.4em;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.wordText {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.wordImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.wordDetail {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 3px;
+}
+
+.storyAdventureTitle {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.storyParagraph {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.storyImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.storyText {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.questionItem {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.questionText {
+  font-size: 1.2em;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.optionsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.optionItem {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.answerText {
+  font-size: 1em;
+  color: #28a745;
+  font-weight: bold;
+}
