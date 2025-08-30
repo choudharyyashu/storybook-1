@@ -10,9 +10,9 @@ const App: React.FC = () => {
             <div>
                 <AppHeader />
                 <Routes>
+                    <Route path="/" element={<Genre />} />
                     <Route path="/genre/*" element={<Genre />} />
                     {/* Static routes for Home, Leaderboard, Daily Quiz, Sign Out */}
-                    <Route path="/" element={<Link to="/genre">Go to Genre</Link>} />
                     <Route path="/leaderboard" element={<h1>Leaderboard Page</h1>} />
                     <Route path="/dailyquiz" element={<h1>Daily Quiz Page</h1>} />
                 </Routes>
