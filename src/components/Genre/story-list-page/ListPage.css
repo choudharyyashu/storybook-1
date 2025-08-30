@@ -5,11 +5,28 @@
   background-color: #1a1a2e; /* Dark background from image */
   min-height: 100vh;
   color: #e0e0e0;
+  position: relative;
+}
+
+/* Wave-shaped background at the top */
+.list-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: #4169E1; /* Solid blue color like the image */
+  clip-path: polygon(0 0, 100% 0%, 100% 58%, 95% 62%, 90% 66%, 85% 69%, 80% 71%, 75% 73%, 70% 74%, 65% 74%, 60% 73%, 55% 71%, 50% 68%, 45% 65%, 40% 63%, 35% 61%, 30% 59%, 25% 58%, 20% 59%, 15% 62%, 10% 67%, 5% 73%, 0 80%);
+  z-index: 0;
 }
 
 .header-section {
   text-align: center;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  padding-top: 50px;
 }
 
 .main-title {
@@ -54,6 +71,7 @@
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 120px; /* Add space above cards so they don't hide behind the wave */
 }
 
 .card-link {

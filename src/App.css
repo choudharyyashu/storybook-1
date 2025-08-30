@@ -3,9 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #1a1a2e;
-    color: #e0e0e0;
-    border-bottom: 1px solid #0f0f1a;
+    background-color: #4169E1; /* Same blue background as the wave */
+    color: #ffffff;
+    border-bottom: 1px solid #3a5ac8;
 }
 
 .logo {
@@ -13,7 +13,7 @@
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 .app-logo {
